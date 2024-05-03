@@ -1,0 +1,647 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:700|Poppins:400');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Poppins';
+    font-weight: 50;
+}
+
+:root{
+    --maincolor: #386C5F;
+}
+
+body, html{
+    background: var(--maincolor);
+    overflow-x: hidden;
+    position: relative;
+}
+
+body.active{
+    overflow-y: hidden;
+}
+
+nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 8vh;
+    padding: 1vh;
+    background-color: #386C5F;
+}
+
+a{
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 1rem;
+    /* color: var(--blue); */
+    color: #D9EDDF;
+}
+
+
+a:hover{
+    cursor: pointer;
+}
+
+.logo{
+    letter-spacing: 4px;
+}
+
+.logo img{
+    width: 3vw;
+    min-width: 35px;
+    font-size: 60px;
+    /* filter: grayscale(100%); */
+}
+
+.nav-list{
+    list-style: none;
+    display: flex;
+}
+
+.nav-list li {
+    letter-spacing: 3px;
+    margin-left: 32px;
+}
+
+.mobile-menu{
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-menu div{
+    width: 32px;
+    height: 2px;
+    margin: 8px;
+    background: white;
+}
+
+.nav-list.active{
+    transform: translateX(0);
+}
+
+/* caroussel */
+
+#frontpage-container{
+    padding: 2rem 0 2rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url('imagens/background.png');
+    background-size: cover;
+}
+
+.caroussel-frontpage{
+    max-width: 60rem;
+    -webkit-box-shadow: 0px 0px 15px 7px #000000; 
+    box-shadow: 0px 0px 15px 7px #000000;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-frontpage{
+    display: flex;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.slider-frontpage img{
+    width: 100%;
+    opacity: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+
+.controls-frontpage .arrow {
+    position: absolute;
+    color: white;
+    top: 50%;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+}
+
+.controls-frontpage .arrow i{
+    font-size: 3rem;
+}
+
+.controls-frontpage .arrow.left{
+    left: 10px;
+}
+
+.controls-frontpage .arrow.right{
+    right: 10px;
+}
+
+#sobreSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+}
+
+#sobre-container{
+    display: flex;
+    background-color: #D3FADE;
+    flex-direction: column;
+    align-items: center;
+    padding: 3rem 0 3rem 0;
+}
+
+#circle-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+#sobre-container #circulo{
+    max-width: 8rem;
+}
+
+.textoCirculo{
+    position: relative;
+    font-size: 5rem;
+    font-weight: bold;
+    left: -98px;
+    color: black;
+    text-shadow: 0px 1px 6px rgba(0,0,0,0.5);
+}
+
+#sobreBloco{
+    width: 90%;
+}
+
+.sobreConteudo{
+    padding: 2rem 0 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.textoSobre{
+    width: 50rem;
+}
+
+.imgSobre{
+    border-radius: 3%;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    rotate: -10deg;
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 1rem 0;
+}
+
+@media (max-width: 1240px) {
+
+    .inverteImagem{
+        order: 2;
+    }
+
+    .inverteTexto{
+        order: 1;
+    }
+
+}
+
+#svgContainer{
+    background-color: #7FB1AD
+}
+
+#svgContainer img{
+    width: 100%;
+    height: 10rem;
+}
+
+#duvidas{
+    background-color: #7FB1AD;
+    padding: 3rem;
+}
+
+details{
+    background-color: #386C5F;
+    transition: all 0.4s ease-in-out;
+    user-select: none;
+    margin: 3rem 0 0 0;
+    padding: 2rem;
+    border-radius: 30px 10px 30px 10px;
+    cursor: pointer;
+}
+
+details[open] summary ~ * {
+    animation: sweep .5s ease-in-out;
+  }
+  
+  @keyframes sweep {
+    0%    {opacity: 0; margin-left: -10px}
+    100%  {opacity: 1; margin-left: 0px}
+}
+
+details[open]{
+    background-color: #6b7e97;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+details > summary{
+    font-weight: 501;
+    color: white;
+    margin-bottom: -10px; /* for more prominent move */
+    transition: margin 150ms ease-out;
+}
+
+details[open] summary{
+    margin-bottom: 10px;
+}
+
+.divisaoTriangulo{
+    clip-path: polygon(100% 0, 0 0, 50% 63%);
+    background-color: #D3FADE;
+    width: 100%;
+    height: 5rem;
+    /* border-top: 1px solid #D3FADE; */
+}
+
+#certificadosContainer{
+    padding: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+#certificadosBloco{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    row-gap: 1.5rem;
+    column-gap: 2%;
+    flex-wrap: wrap;
+}
+
+.certificado{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.certificadoImg, .nomeCertificado, .dadosCertificado{
+    width: 7.5rem;
+    transition: 0.2s;
+    
+}
+
+.nomeCertificado{
+    margin-bottom: 0.7rem;
+}
+
+.dadosCertificado{
+    text-align: center;
+    user-select: none;
+}
+
+.certificado:hover .nomeCertificado,
+.certificado:hover .certificadoImg{
+    transform: scale(1.2);
+}
+
+.botaoCertificado{
+    padding: 15px;
+    color: white;
+    font-size: 0.7rem;
+    font-weight: bold;
+    border: none;
+    background: #1E3F2A;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.botaoCertificado:hover{
+    background: #3e5f4a;
+}
+
+.certificado p{
+    color: white;
+    font-weight: bold;
+}
+
+.certificado:hover .dadosCertificado {
+    transform: translateY(16px);
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(15px);
+}
+
+dialog{
+    border-radius: 10px;
+    background-color: #D3FADE;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    padding: 2rem 0;
+    border: 0;
+    display: none;
+    justify-content: center;
+}
+
+dialog[open]{
+    display: flex;
+}
+
+body:has(dialog[open]) {
+    overflow: hidden;
+}
+
+.dialogBloco{
+    width: 90%;
+    align-items: center;
+    flex-direction: column;
+    /* gap: 5%; */
+    display: flex;
+}
+
+.carousselDialogContainer{
+    flex-shrink: 0;
+    width: 20rem;
+}
+
+@media (max-width: 1315px){
+
+    dialog{
+        width: 90%;
+    }
+
+    /* .dialogBloco{
+        flex-wrap: wrap;
+    } */
+
+    .dialogBloco{
+        /* flex-direction: column-reverse */
+    }
+}
+
+.certificadoImagem{
+    width: 100%;
+}
+
+.conteudoDialog{
+    display: flex;
+    flex-direction: column;
+    gap: 5%;
+}
+
+.headerDialog{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tituloDialog{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.dialogClose{    
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: rgb(250, 85, 85);
+    margin: 1rem;
+    padding: 1rem 3rem;
+    transition: 0.2s all;
+}
+
+.dialogClose:hover{
+    background-color: rgb(252, 22, 22);
+}
+
+#colaboracoesContainer{
+    padding: 2rem 0;
+    background-color: #D3FADE;
+    display: flex;
+    justify-content: center;
+}
+
+#colaboracoesBloco{
+    display: flex;
+    align-items: center;
+    row-gap: 3rem;
+    flex-direction: column;
+    width: 90%;
+}
+
+.tituloColaboracoes{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#colaboracoesFlex{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
+}
+
+.imgCertificado{
+    /* background-color: red; */
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgCertificado p{
+    margin: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+    transition: 0.2s all;
+    padding: 0.5rem 1rem;
+}
+
+.botaoPlastico{
+    background-color: #f58181;
+}
+
+.botaoPlastico:hover{
+    background-color: rgb(252, 30, 30);
+}
+
+.botaoPapeis{
+    background-color: #44beee;
+}
+
+.botaoPapeis:hover{
+    background-color: #0a96e7;
+}
+
+.botaoMetais{
+    background-color: #fff350;
+}
+
+.botaoMetais:hover{
+    background-color: #f0be1a;
+}
+
+.botaoVidros{
+    background-color: #44f17e;
+}
+
+.botaoVidros:hover{
+    background-color: #76f12f;
+}
+
+.botaoOrganicos{
+    background-color: #a7622a;
+}
+
+.botaoOrganicos:hover{
+    background-color: #d16d1b;
+}
+
+.colaboracoesIcon{
+    width: 120px;
+    user-select: none;
+}
+
+#contatoContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10rem 0;
+    background-color: #D3FADE;
+}
+
+#contatoBloco{
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    row-gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.nomeContato{
+    color: black;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+#contatoBloco h1{
+    font-weight: bold;
+    color: black;
+    text-shadow: #181818;
+    font-size: 3rem;
+    user-select: none;
+}
+
+#meiosDeContatoContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* background-color: red; */
+    flex-wrap: wrap;
+    column-gap: 3rem;
+}
+
+.contatoIcon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contatoIcon img{
+    width: 70px;
+}
+
+
+
+
+
+footer {
+    background-color: #386C5F;
+    padding: 10px;
+    color: #D9EDDF;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+footer p {
+    margin: 5px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+    display: inline-block;
+    padding: 8px 12px;
+    margin: 5px;
+}
+
+@media (max-width: 999px) {
+
+    .nav-list{
+        position: absolute;
+        top: 8vh;
+        right: 0;
+        width: 100vw;
+        height: 92vh;
+        z-index: 100;
+        flex-direction: column;
+        align-items: center;
+        background: #181818;
+        justify-content: space-around;
+        transform: translateX(100%);
+        transition: all 0.5s ease-in-out;
+    }
+
+    .nav-list li{
+        margin-left: 0;
+        /* opacity: 0; */
+    }
+
+    .mobile-menu{
+        display: block;
+    }
+
+
+
+
+    .container-sobre-foto{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+
+
+/* ANIMAÇOES & TRANSIÇOES ETC */
+
+.hidden{
+    opacity: 0;
+    transition: all 1s;
+}
+
+.show{
+    opacity: 1;
+}
+
+.esquerda{
+    left: -5%;
+    transition: left 0.8s;
+}
+
+.direita{
+    left: 0%;
+}
